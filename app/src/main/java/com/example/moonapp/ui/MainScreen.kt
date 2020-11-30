@@ -1,11 +1,12 @@
 package com.example.moonapp.ui
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.example.moonapp.R
 
 class MainScreen : Fragment() {
@@ -27,6 +28,10 @@ class MainScreen : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainScreenViewModel::class.java)
         // TODO: Use the ViewModel
+
+        requireActivity().onBackPressedDispatcher.addCallback {
+            requireActivity().finish()
+        }
     }
 
 }
