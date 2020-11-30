@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.moonapp.R
+import com.example.moonapp.constants.PREF_USER_NAME
 import com.example.moonapp.databinding.FragmentStartScreenBinding
 import com.example.moonapp.gone
+import com.example.moonapp.prefs
 
 class StartScreenFragment : Fragment() {
 
@@ -23,12 +25,28 @@ class StartScreenFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        checkUserLoggedIn()
+    }
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         (requireActivity() as MainActivity).binding.toolbar.gone()
 
         setOnClickListeners()
+    }
+
+    private fun checkUserLoggedIn(): Boolean {
+        val name = context?.prefs?.getString(PREF_USER_NAME, "") ?: ""
+
+        if (name.isNotBlank()) {
+            findNavController().navigate(R.id.action_StartScreenFragment_to_MainScreen)
+        }
+
+        return false
     }
 
     private fun setOnClickListeners() {

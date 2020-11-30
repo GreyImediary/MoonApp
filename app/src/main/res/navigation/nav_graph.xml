@@ -17,10 +17,22 @@
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_StartScreenFragment_to_MainScreen"
+            app:destination="@id/MainScreen" />
     </fragment>
     <fragment
         android:id="@+id/SignInFragment"
         android:name="com.example.moonapp.ui.SignInFragment"
         android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_sign_in"/>
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_SignInFragment_to_MainScreen"
+            app:destination="@id/MainScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/MainScreen"
+        android:name="com.example.moonapp.ui.MainScreen"
+        android:label="@string/main_screen_label"
+        tools:layout="@layout/main_screen_fragment" />
 </navigation>

@@ -4,10 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.moonapp.R
+import com.example.moonapp.constants.PREF_USER_NAME
+import com.example.moonapp.constants.PREF_USER_PASS
 import com.example.moonapp.databinding.FragmentSignInBinding
 import com.example.moonapp.gone
+import com.example.moonapp.prefs
+import com.google.android.material.snackbar.Snackbar
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
@@ -36,13 +42,20 @@ class SignInFragment : Fragment() {
     private fun setOnClickListeners() {
         binding.buttonSignUp.setOnClickListener {
             if (checkInputs()) {
+                context?.prefs?.edit {
+                    putString(PREF_USER_NAME, binding.editUserName.text.toString())
+                    putString(PREF_USER_PASS, binding.editUserPass.text.toString())
+                }
 
+                findNavController().navigate(R.id.action_SignInFragment_to_MainScreen)
             }
         }
 
         binding.buttonSignIn.setOnClickListener {
             if (checkInputs()) {
-
+                if (checkLogIn()) {
+                    findNavController().navigate(R.id.action_SignInFragment_to_MainScreen)
+                }
             }
         }
     }
@@ -57,11 +70,33 @@ class SignInFragment : Fragment() {
 
         if (userName.isEmpty()) {
             binding.inputUserName.error = getString(R.string.user_name_error)
+        } else {
+            binding.inputUserName.error = null
         }
 
         if (pass.isEmpty()) {
             binding.inputUserPass.error = getString(R.string.user_pass_error)
+        } else {
+            binding.inputUserPass.error = null
         }
+
+        return false
+    }
+
+    private fun checkLogIn(): Boolean {
+        val prefName = context?.prefs?.getString(PREF_USER_NAME, "") ?: ""
+        val prefPass = context?.prefs?.getString(PREF_USER_PASS, "") ?: ""
+
+        val editName = binding.editUserName.text.toString()
+        val editPass = binding.editUserPass.text.toString()
+
+        if (prefName == editName && prefPass == editPass) {
+            return true
+        }
+
+        Snackbar
+            .make(binding.root, R.string.log_in_snackbar, Snackbar.LENGTH_SHORT)
+            .show()
 
         return false
     }

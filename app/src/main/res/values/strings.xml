@@ -2,11 +2,10 @@
     <string name="app_name">MoonApp</string>
 
     <string name="action_settings">Settings</string>
+
     <string name="first_fragment_label">Start screen</string>
     <string name="second_fragment_label">Sign in screen</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="main_screen_label">Main screen</string>
 
     <!-- Start screen -->
     <string name="sign_up">Зарегистрироваться</string>
@@ -21,4 +20,6 @@
 
     <string name="user_name_error">Введите имя пользователя</string>
     <string name="user_pass_error">Введите пароль</string>
+
+    <string name="log_in_snackbar">Логин и пароль не совпадают</string>
 </resources>
