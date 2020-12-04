@@ -1,58 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="@dimen/medium_margin"
-    tools:context=".ui.MainScreen">
+    tools:context=".ui.MainScreenFragment">
 
-    <TextView
-        android:id="@+id/date_text"
-        app:layout_constraintStart_toStartOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toTopOf="@id/moon_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="10 ноября 2020" />
+
+        <TextView
+            android:id="@+id/moon_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            app:layout_constraintBottom_toTopOf="@id/moon_day_desc"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/date_text"
+            tools:text="25" />
+
+        <TextView
+            android:id="@+id/moon_day_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/moon_day_desc"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            app:layout_constraintBottom_toTopOf="@id/moon_day_text"
+            app:layout_constraintEnd_toEndOf="@id/moon_day"
+            app:layout_constraintStart_toStartOf="@id/moon_day"
+            app:layout_constraintTop_toBottomOf="@id/moon_day" />
+
+        <TextView
+            android:id="@+id/moon_day_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/moon_day_desc"
+            tools:text="Сегодня энергия месяца возвращается к человеку. Это день второго дыхания. Если в течении предыдущего месяца вы не делала крупных ошибок, вы почувствуете прилив сил и желание свернуть горы. Но действовать слишком активно сегодня не стоит. Энергия предназначена для внутренней трансформации, трансформации мышц и костей, укрепления воли. " />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="10 ноября 2020"
-        app:layout_constraintBottom_toTopOf="@id/moon_day"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/moon_day"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/date_text"
-        tools:text="25"
-        app:layout_constraintBottom_toTopOf="@id/moon_day_desc"
-        android:textColor="@android:color/black"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <TextView
-        android:id="@+id/moon_day_desc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/moon_day"
-        app:layout_constraintBottom_toTopOf="@id/moon_day_text"
-        android:text="@string/moon_day_desc"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-        app:layout_constraintStart_toStartOf="@id/moon_day"
-        app:layout_constraintEnd_toEndOf="@id/moon_day" />
-
-    <TextView
-        android:id="@+id/moon_day_text"
-        android:layout_width="0dp"
-        tools:text="Сегодня энергия месяца возвращается к человеку. Это день второго дыхания. Если в течении предыдущего месяца вы не делала крупных ошибок, вы почувствуете прилив сил и желание свернуть горы. Но действовать слишком активно сегодня не стоит. Энергия предназначена для внутренней трансформации, трансформации мышц и костей, укрепления воли. "
-        android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:layout_marginTop="@dimen/medium_margin"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/moon_day_desc" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
