@@ -39,10 +39,19 @@ class MainScreenFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        getMoonDay()
+
         requireActivity().onBackPressedDispatcher.addCallback {
             requireActivity().finish()
         }
 
+        binding.root.setOnRefreshListener {
+            getMoonDay()
+        }
+
+    }
+
+    private fun getMoonDay() {
         viewModel.getMoonPhase().observe(viewLifecycleOwner) {
             when (it) {
                 is Result.Success -> {
@@ -87,6 +96,7 @@ class MainScreenFragment : Fragment() {
 
     private fun hideProgress() {
         binding.progressBar.gone()
+        binding.root.isRefreshing = false
     }
 
     override fun onDestroy() {
