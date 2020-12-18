@@ -14,7 +14,7 @@
 
     <!--Log in screen-->
     <string name="sign_in">Войти</string>
-    
+
     <string name="user_name_hint">Имя пользователя</string>
     <string name="user_password_hint">Пароль</string>
 
