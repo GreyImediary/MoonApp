@@ -34,5 +34,14 @@
         android:id="@+id/MainScreen"
         android:name="com.example.moonapp.ui.MainScreenFragment"
         android:label="@string/main_screen_label"
-        tools:layout="@layout/main_screen_fragment" />
+        tools:layout="@layout/main_screen_fragment" >
+        <action
+            android:id="@+id/action_MainScreen_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.moonapp.ui.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

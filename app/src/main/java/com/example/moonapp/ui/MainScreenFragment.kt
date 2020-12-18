@@ -9,6 +9,7 @@ import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.moonapp.DateUtils
 import com.example.moonapp.R
 import com.example.moonapp.data.MoonDayData
@@ -49,6 +50,9 @@ class MainScreenFragment : Fragment() {
             getMoonDay()
         }
 
+        binding.settingsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_MainScreen_to_settingsFragment)
+        }
     }
 
     private fun getMoonDay() {
