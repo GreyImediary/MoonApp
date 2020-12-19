@@ -37,6 +37,7 @@ class StartScreenFragment : Fragment() {
         (requireActivity() as MainActivity).binding.toolbar.gone()
 
         setOnClickListeners()
+        setSlider()
     }
 
     private fun checkUserLoggedIn(): Boolean {
@@ -52,6 +53,14 @@ class StartScreenFragment : Fragment() {
     private fun setOnClickListeners() {
         binding.buttonSignUp.setOnClickListener {
             findNavController().navigate(R.id.action_StartScreenFragment_to_SignInFragment)
+        }
+    }
+
+    private fun setSlider() {
+        val sliderTexts = resources.getStringArray(R.array.slider_texts).toList()
+        binding.slider.apply {
+            setSliderAdapter(SliderAdapter(sliderTexts))
+            startAutoCycle()
         }
     }
 
