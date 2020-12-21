@@ -47,6 +47,11 @@ class MainScreenFragment : Fragment() {
             findNavController().navigate(R.id.action_MainScreen_to_settingsFragment)
         }
 
+        setOnClickListener()
+    }
+
+    override fun onResume() {
+        super.onResume()
         setMeditationIcons()
     }
 
@@ -114,6 +119,23 @@ class MainScreenFragment : Fragment() {
     private fun hideProgress() {
         binding.progressBar.gone()
         binding.root.isRefreshing = false
+    }
+
+    private fun setOnClickListener() {
+        binding.meditation1Lock.setOnClickListener {
+            showLockSnackBar()
+        }
+
+        binding.meditation2Lock.setOnClickListener {
+            showLockSnackBar()
+        }
+    }
+
+    private fun showLockSnackBar() {
+        Snackbar
+            .make(binding.root, R.string.lock_text, Snackbar.LENGTH_SHORT)
+            .setAction("OK") {}
+            .show()
     }
 
     override fun onDestroy() {
