@@ -8,16 +8,12 @@ import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.moonapp.R
-import com.example.moonapp.constants.PREF_USER_NAME
-import com.example.moonapp.constants.PREF_USER_PASS
+import com.example.moonapp.constants.*
 import com.example.moonapp.databinding.FragmentSignInBinding
 import com.example.moonapp.gone
 import com.example.moonapp.prefs
 import com.google.android.material.snackbar.Snackbar
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class SignInFragment : Fragment() {
 
     private var _binding: FragmentSignInBinding? = null
@@ -52,6 +48,17 @@ class SignInFragment : Fragment() {
         }
 
         binding.buttonSignIn.setOnClickListener {
+            if (isPaidLogIn()) {
+                context?.prefs?.edit {
+                    putString(PREF_USER_NAME, paidLogin)
+                    putString(PREF_USER_PASS, paidPass)
+                    putBoolean(PREF_IS_PAID, true)
+                }
+
+                findNavController().navigate(R.id.action_SignInFragment_to_MainScreen)
+                return@setOnClickListener
+            }
+
             if (checkInputs()) {
                 if (checkLogIn()) {
                     findNavController().navigate(R.id.action_SignInFragment_to_MainScreen)
@@ -81,6 +88,13 @@ class SignInFragment : Fragment() {
         }
 
         return false
+    }
+
+    private fun isPaidLogIn(): Boolean {
+        val name = binding.editUserName.text.toString()
+        val pass = binding.editUserPass.text.toString()
+
+        return name == paidLogin && pass == paidPass
     }
 
     private fun checkLogIn(): Boolean {

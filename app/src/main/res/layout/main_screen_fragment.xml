@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -62,6 +63,18 @@
             app:layout_constraintTop_toBottomOf="@id/moon_day" />
 
         <ImageView
+            android:id="@+id/meditation_1_lock"
+            android:layout_width="@dimen/meditation_icon_size"
+            android:layout_height="@dimen/meditation_icon_size"
+            app:layout_constraintTop_toTopOf="@id/meditation_1"
+            app:layout_constraintBottom_toBottomOf="@id/meditation_1"
+            app:layout_constraintStart_toStartOf="@id/meditation_1"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintEnd_toEndOf="@id/meditation_1"
+            app:tint="?attr/iconTint" />
+
+
+        <ImageView
             android:id="@+id/meditation_1"
             android:layout_width="@dimen/meditation_icon_size"
             android:layout_height="@dimen/meditation_icon_size"
@@ -75,6 +88,8 @@
             app:layout_constraintTop_toBottomOf="@id/moon_day_desc"
             app:tint="?attr/iconTint" />
 
+
+
         <ImageView
             android:id="@+id/meditation_2"
             android:layout_width="@dimen/meditation_icon_size"
@@ -85,6 +100,18 @@
             android:layout_marginTop="@dimen/large_margin"
             app:layout_constraintTop_toBottomOf="@id/moon_day_desc"
             app:tint="?attr/iconTint" />
+
+        <ImageView
+            android:id="@+id/meditation_2_lock"
+            android:layout_width="@dimen/meditation_icon_size"
+            android:layout_height="@dimen/meditation_icon_size"
+            app:layout_constraintTop_toTopOf="@id/meditation_2"
+            app:layout_constraintBottom_toBottomOf="@id/meditation_2"
+            app:layout_constraintStart_toStartOf="@id/meditation_2"
+            android:src="@drawable/ic_lock"
+            app:layout_constraintEnd_toEndOf="@id/meditation_2"
+            app:tint="?attr/iconTint" />
+
 
         <TextView
             android:id="@+id/moon_day_text"

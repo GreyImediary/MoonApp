@@ -1,24 +1,17 @@
 package com.example.moonapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.moonapp.DateUtils
-import com.example.moonapp.R
-import com.example.moonapp.data.MoonDayData
+import com.example.moonapp.*
+import com.example.moonapp.constants.PREF_IS_PAID
 import com.example.moonapp.data.Result
-import com.example.moonapp.databinding.FragmentSignInBinding
 import com.example.moonapp.databinding.MainScreenFragmentBinding
-import com.example.moonapp.gone
 import com.example.moonapp.viewModels.MainScreenViewModel
-import com.example.moonapp.visible
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -52,6 +45,26 @@ class MainScreenFragment : Fragment() {
 
         binding.settingsButton.setOnClickListener {
             findNavController().navigate(R.id.action_MainScreen_to_settingsFragment)
+        }
+
+        setMeditationIcons()
+    }
+
+    private fun setMeditationIcons() {
+        val isPaid = context?.prefs?.getBoolean(PREF_IS_PAID, false) ?: false
+
+        if (isPaid) {
+            binding.meditation1.visible()
+            binding.meditation2.visible()
+
+            binding.meditation1Lock.invisible()
+            binding.meditation2Lock.invisible()
+        } else {
+            binding.meditation1.invisible()
+            binding.meditation2.invisible()
+
+            binding.meditation1Lock.visible()
+            binding.meditation2Lock.visible()
         }
     }
 
