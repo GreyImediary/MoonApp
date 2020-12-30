@@ -78,4 +78,7 @@
     </string-array>
     <!-- Settings fragment -->
     <string name="log_out">Выйти</string>
+
+    <!--subscription screen-->
+    <string name="subscription_desc">Какой-то добрый и прикольный текст о том, что навечно вы можете быть в курсе того, какой лунный день и его символ, но для проработки дня, доступа к медитациям нужно заплатить </string>
 </resources>

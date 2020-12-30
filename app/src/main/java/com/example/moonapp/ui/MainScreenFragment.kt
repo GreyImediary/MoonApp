@@ -134,7 +134,9 @@ class MainScreenFragment : Fragment() {
     private fun showLockSnackBar() {
         Snackbar
             .make(binding.root, R.string.lock_text, Snackbar.LENGTH_SHORT)
-            .setAction("OK") {}
+            .setAction("OK") {
+                findNavController().navigate(R.id.action_MainScreen_to_SubscriptionFragment)
+            }
             .show()
     }
 
