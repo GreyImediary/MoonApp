@@ -14,6 +14,7 @@ import com.example.moonapp.databinding.MainScreenFragmentBinding
 import com.example.moonapp.viewModels.MainScreenViewModel
 import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.*
 
 class MainScreenFragment : Fragment() {
 
@@ -99,6 +100,10 @@ class MainScreenFragment : Fragment() {
         binding.moonDay.text = moonDay.toString()
         binding.moonDayText.text = resources.getStringArray(R.array.moon_day_texts)[moonDay - 1]
         binding.dateText.text = DateUtils.getFullDay()
+        binding.timeText.text = DateUtils.getTime()
+        binding.cityText.text = TimeZone.getDefault()
+            .getDisplayName(Locale("ru"))
+            .split(',')[0]
 
         showContent()
         hideProgress()
