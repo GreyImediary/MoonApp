@@ -1,6 +1,10 @@
 package com.example.moonapp.ui
 
+import android.app.DownloadManager
+import android.content.Context.DOWNLOAD_SERVICE
+import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -60,17 +64,17 @@ class MainScreenFragment : Fragment() {
         val isPaid = context?.prefs?.getBoolean(PREF_IS_PAID, false) ?: false
 
         if (isPaid) {
-            binding.meditation1.visible()
-            binding.meditation2.visible()
+            binding.startMeditation.visible()
+            binding.correctionMeditation.visible()
 
-            binding.meditation1Lock.invisible()
-            binding.meditation2Lock.invisible()
+            binding.startMeditationLock.invisible()
+            binding.correctionMeditationLock.invisible()
         } else {
-            binding.meditation1.invisible()
-            binding.meditation2.invisible()
+            binding.startMeditation.invisible()
+            binding.correctionMeditation.invisible()
 
-            binding.meditation1Lock.visible()
-            binding.meditation2Lock.visible()
+            binding.startMeditationLock.visible()
+            binding.correctionMeditationLock.visible()
         }
     }
 
@@ -127,12 +131,30 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun setOnClickListener() {
-        binding.meditation1Lock.setOnClickListener {
+        binding.correctionMeditationLock.setOnClickListener {
             showLockSnackBar()
         }
 
-        binding.meditation2Lock.setOnClickListener {
+        binding.correctionMeditationLock.setOnClickListener {
             showLockSnackBar()
+        }
+
+        binding.startMeditation.setOnClickListener {
+            DownloadUtils.downloadFile(
+                url = getString(R.string.start_meditation_link),
+                fileName = "startMeditation.mp4",
+                title = "Start meditation",
+                context = context
+            )
+        }
+
+        binding.correctionMeditation.setOnClickListener {
+            DownloadUtils.downloadFile(
+                url = getString(R.string.correction_meditation_link),
+                fileName = "correctionMeditation.mp4",
+                title = "Correction meditation",
+                context = context
+            )
         }
     }
 

@@ -83,29 +83,29 @@
             android:layout_height="wrap_content"
             android:text="@string/moon_day_desc"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            app:layout_constraintBottom_toTopOf="@id/meditation_1"
+            app:layout_constraintBottom_toTopOf="@id/start_meditation"
             app:layout_constraintEnd_toEndOf="@id/moon_day"
             app:layout_constraintStart_toStartOf="@id/moon_day"
             app:layout_constraintTop_toBottomOf="@id/moon_day" />
 
         <ImageView
-            android:id="@+id/meditation_1_lock"
+            android:id="@+id/start_meditation_lock"
             android:layout_width="@dimen/meditation_icon_size"
             android:layout_height="@dimen/meditation_icon_size"
-            app:layout_constraintTop_toTopOf="@id/meditation_1"
-            app:layout_constraintBottom_toBottomOf="@id/meditation_1"
-            app:layout_constraintStart_toStartOf="@id/meditation_1"
+            app:layout_constraintTop_toTopOf="@id/start_meditation"
+            app:layout_constraintBottom_toBottomOf="@id/start_meditation"
+            app:layout_constraintStart_toStartOf="@id/start_meditation"
             android:src="@drawable/ic_lock"
-            app:layout_constraintEnd_toEndOf="@id/meditation_1"
+            app:layout_constraintEnd_toEndOf="@id/start_meditation"
             app:tint="?attr/iconTint" />
 
 
         <ImageView
-            android:id="@+id/meditation_1"
+            android:id="@+id/start_meditation"
             android:layout_width="@dimen/meditation_icon_size"
             android:layout_height="@dimen/meditation_icon_size"
-            android:src="@drawable/ic_meditation_1"
-            app:layout_constraintEnd_toStartOf="@id/meditation_2"
+            android:src="@drawable/ic_start_meditation"
+            app:layout_constraintEnd_toStartOf="@id/correction_meditation"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="@dimen/large_margin"
             app:layout_constraintBottom_toTopOf="@id/moon_day_text"
@@ -117,25 +117,25 @@
 
 
         <ImageView
-            android:id="@+id/meditation_2"
+            android:id="@+id/correction_meditation"
             android:layout_width="@dimen/meditation_icon_size"
             android:layout_height="@dimen/meditation_icon_size"
-            android:src="@drawable/ic_meditation_2"
+            android:src="@drawable/ic_correction_meditation"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/meditation_1"
+            app:layout_constraintStart_toEndOf="@id/start_meditation"
             android:layout_marginTop="@dimen/large_margin"
             app:layout_constraintTop_toBottomOf="@id/moon_day_desc"
             app:tint="?attr/iconTint" />
 
         <ImageView
-            android:id="@+id/meditation_2_lock"
+            android:id="@+id/correction_meditation_lock"
             android:layout_width="@dimen/meditation_icon_size"
             android:layout_height="@dimen/meditation_icon_size"
-            app:layout_constraintTop_toTopOf="@id/meditation_2"
-            app:layout_constraintBottom_toBottomOf="@id/meditation_2"
-            app:layout_constraintStart_toStartOf="@id/meditation_2"
+            app:layout_constraintTop_toTopOf="@id/correction_meditation"
+            app:layout_constraintBottom_toBottomOf="@id/correction_meditation"
+            app:layout_constraintStart_toStartOf="@id/correction_meditation"
             android:src="@drawable/ic_lock"
-            app:layout_constraintEnd_toEndOf="@id/meditation_2"
+            app:layout_constraintEnd_toEndOf="@id/correction_meditation"
             app:tint="?attr/iconTint" />
 
 
@@ -149,7 +149,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/meditation_1"
+            app:layout_constraintTop_toBottomOf="@id/start_meditation"
             tools:text="Сегодня энергия месяца возвращается к человеку. Это день второго дыхания. Если в течении предыдущего месяца вы не делала крупных ошибок, вы почувствуете прилив сил и желание свернуть горы. Но действовать слишком активно сегодня не стоит. Энергия предназначена для внутренней трансформации, трансформации мышц и костей, укрепления воли. " />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
