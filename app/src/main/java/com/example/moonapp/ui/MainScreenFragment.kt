@@ -1,10 +1,6 @@
 package com.example.moonapp.ui
 
-import android.app.DownloadManager
-import android.content.Context.DOWNLOAD_SERVICE
-import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

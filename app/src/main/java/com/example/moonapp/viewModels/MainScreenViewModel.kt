@@ -1,5 +1,6 @@
 package com.example.moonapp.viewModels
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.moonapp.api.MoonService
@@ -26,8 +27,9 @@ class MainScreenViewModel(private val api: MoonService) : ViewModel() {
         val moonPhase: Double = moonDayData.moonDayLocation.currentCondition.moonPhase
 
         return when {
-            moonPhase % 10 < 0.5 -> floor(moonPhase * 30).toInt()
-            moonPhase % 10 > 0.5 -> ceil(moonPhase * 30).toInt()
+            moonPhase - moonPhase.toInt() < 0.1 -> ceil(moonPhase).toInt()
+            moonPhase - moonPhase.toInt() < 0.5 -> floor(moonPhase * 30).toInt()
+            moonPhase - moonPhase.toInt() > 0.5 -> ceil(moonPhase * 30).toInt()
             moonPhase == 0.0 -> 1
             else -> (moonPhase * 30).toInt()
 
