@@ -12,6 +12,10 @@ import com.example.moonapp.databinding.FragmentStartScreenBinding
 import com.example.moonapp.gone
 import com.example.moonapp.prefs
 
+/**
+ * Фрагмент, который является начальным экраном для незарегистрированного пользователя.
+ * Через него пользователь переходит на экраны регистрации и авторизации.
+* */
 class StartScreenFragment : Fragment() {
 
     private var _binding: FragmentStartScreenBinding? = null

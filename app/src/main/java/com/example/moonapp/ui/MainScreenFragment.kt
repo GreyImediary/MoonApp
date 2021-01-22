@@ -16,6 +16,10 @@ import com.google.android.material.snackbar.Snackbar
 import org.koin.android.viewmodel.ext.android.viewModel
 import java.util.*
 
+/**
+ * Фрагмент, который отображает главный экран приложения, и, в зависимости от статуса аккаунта
+ * пользователя отображает или делает недоступным часть функционала.
+ * */
 class MainScreenFragment : Fragment() {
 
     private val viewModel: MainScreenViewModel by viewModel()

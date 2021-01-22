@@ -5,7 +5,18 @@ import android.content.Context
 import android.net.Uri
 import android.os.Environment
 
+/**
+ * Класс, содержащий методы, необходимые для загрузки и управления файлами
+ * */
 object DownloadUtils {
+
+    /**
+     * Скачивает файл при помощи [DownloadManager]
+     * [url] является ссылкой на скачиваемый файл
+     * [fileName] - имя файла, в который будет загружен файл
+     * [title] - заголовок уведомления
+     * [context] необходим для получения [DownloadManager]
+     * */
     fun downloadFile(url: String, fileName: String, title: String, context: Context?) {
         val uri = Uri.parse(url)
 

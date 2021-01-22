@@ -7,6 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.moonapp.databinding.FragmentSubscriptionBinding
 
+/**
+* Фрагмент, на котором располагается ифнормация и логика по подпискам.
+ * */
 class SubscriptionFragment : Fragment() {
     private var _binding: FragmentSubscriptionBinding? = null
     private val binding get() = _binding!!

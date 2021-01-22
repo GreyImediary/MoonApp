@@ -4,7 +4,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 object DateUtils {
+    // Формат 12 января 2021
     private const val FULL_DAY_FORMAT = "dd MMMM yyyy"
+
+    // Формат 19:02
     private const val TIME_DATE_FORMAT = "HH:mm"
 
     fun getFullDay(): String {

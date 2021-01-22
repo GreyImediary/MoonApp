@@ -6,6 +6,11 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+/**
+ * DI на Koin для создания имплементации MoonService
+ * @see [Koin]](https://doc.insert-koin.io/#/introduction)
+ * */
+
 object RetrofitProperties {
     const val BASE_URL = "BASE_URL"
 }
@@ -29,8 +34,10 @@ val baseApiModule = module {
 }
 
 val apiModule = module {
-    single { createApi<MoonService>(
-        get(named(RetrofitProperties.BASE_URL)),
-        get()
-    ) }
+    single {
+        createApi<MoonService>(
+            get(named(RetrofitProperties.BASE_URL)),
+            get()
+        )
+    }
 }
