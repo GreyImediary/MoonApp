@@ -28,6 +28,10 @@ class MainScreenViewModel(private val api: MoonService) : ViewModel() {
      * */
 
     /*
+    * Изменил получение лунного дня с использования сервиса на парсинг астрологического сайта, на
+    * котором правильно высчиывается день.
+    * Данные фазы Луны из api либо имеют большой преиод обновления, либо нужен иной подход к
+    * вычсилению лунного дня из фазы(при текущем он высичтывался неправильно)
     * */
     private suspend fun getMoonDay(): Int {
         /*val timeZoneId: String = TimeZone.getDefault().id
