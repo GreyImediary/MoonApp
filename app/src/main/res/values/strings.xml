@@ -77,8 +77,8 @@
         <item>Вдохновлящий и меняющийся по слайдеру текст 11</item>
     </string-array>
 
-    <string name="start_meditation_link">https://cs1-65v4.vkuseraudio.net/p8/995d2f0e44bbd7.mp3</string>
-    <string name="correction_meditation_link">https://cs1-59v4.vkuseraudio.net/p16/585bf4ad14a0c6.mp3</string>
+    <string name="start_meditation_link">https://cs1-65v4.vkuseraudio.net/p8/35398929d9e828.mp3</string>
+    <string name="correction_meditation_link">https://cs9-8v4.vkuseraudio.net/p2/0796d8fe65846e.mp3</string>
     <!-- Settings fragment -->
     <string name="log_out">Выйти</string>
 
