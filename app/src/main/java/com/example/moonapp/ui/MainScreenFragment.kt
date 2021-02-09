@@ -13,7 +13,7 @@ import com.example.moonapp.data.Result
 import com.example.moonapp.databinding.MainScreenFragmentBinding
 import com.example.moonapp.viewModels.MainScreenViewModel
 import com.google.android.material.snackbar.Snackbar
-import org.koin.android.viewmodel.ext.android.viewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 /**
@@ -46,10 +46,6 @@ class MainScreenFragment : Fragment() {
 
         binding.root.setOnRefreshListener {
             getMoonDay()
-        }
-
-        binding.settingsButton.setOnClickListener {
-            findNavController().navigate(R.id.action_MainScreen_to_settingsFragment)
         }
 
         setOnClickListener()
@@ -131,14 +127,20 @@ class MainScreenFragment : Fragment() {
     }
 
     private fun setOnClickListener() {
-        binding.correctionMeditationLock.setOnClickListener {
-            showLockSnackBar()
+        binding.settingsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_MainScreen_to_settingsFragment)
         }
 
         binding.correctionMeditationLock.setOnClickListener {
             showLockSnackBar()
         }
 
+        binding.correctionMeditationLock.setOnClickListener {
+            showLockSnackBar()
+        }
+
+        // listener'ы иконок медитации. Т.к. бэка на момент разработки не было, проверялась только
+        // корректность загрузки файла
         binding.startMeditation.setOnClickListener {
             DownloadUtils.downloadFile(
                 url = getString(R.string.start_meditation_link),
